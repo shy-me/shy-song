@@ -1,0 +1,205 @@
+<html>
+    <head>
+        <meta/>
+        <title>
+            welcome to weight converter
+        </title>
+
+        <link  type="text/css" rel="styleSheet" />
+
+
+        <style>
+body{
+    background:url(bg.jpg);
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-size: 100vw;
+    color:ghostwhite;
+    margin:0px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+}
+
+#v_header{
+    background:rgb(9, 90, 128);
+    width:400px;
+    position:relative;
+    border-top-right-radius:10px;
+    border-top-left-radius:10px;
+    margin:0 auto;
+
+}
+
+#v_header h1, p{
+text-align:center;
+}
+
+#container{
+    background:rgb(41, 40, 40);
+    width:400px;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+#content{
+    border-bottom-right-radius:10px;
+    border-bottom-left-radius:10px;
+    margin:0 auto;
+    width:400px;
+    height:70vh;
+
+}
+
+label{
+    font-weight:bold;
+    font-size: 15px;
+    margin-left:20px;
+    text-transform:capitalize;
+
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance:none;
+}
+
+input{
+    margin-left:50px;
+    margin-top:5px;
+    padding:10px;
+    width:300px;
+    font-weight:bold;
+    margin-bottom:15px;
+    
+
+}
+
+/*.k_g{
+    margin-left:4px;
+}
+
+.pounds{
+    margin-left:40px;
+}
+
+.milligram{
+    margin-left:27px;
+}
+
+.stones{
+    margin-left:42px;
+}
+
+.ounce{
+    margin-left:45px;
+}
+
+.convert{
+    display:inline;
+    color:ghostwhite;
+    font-weight:bold;
+    margin-left:30px;
+    border-bottom: solid 3px rgb(63, 80, 59);
+    background:rgb(9, 90, 128);
+}
+*/
+.reset{
+   margin-left:100px;
+   color:ghostwhite;
+   font-weight:bold;
+   border-radius: 10px;
+   border-bottom: solid 3px rgb(63, 80, 59);
+   background:rgb(9, 90, 128);
+}
+.reset:hover{
+ border:gray solid 2px;}
+/* .convert:hover{
+ border:gray solid 2px;
+ 
+
+}*/
+        </style>
+    </head>
+
+    <body>
+        <div id="container">
+        <div id="v_header" class="container">
+        <h1 class="logo" onclick="reload()">weight converter</h1> 
+        <p>welcome to simple weight converter </p>
+        </div>
+
+
+        <div id="content" >
+            
+            <label>weight in kg</label><br>
+            <input type="number" id="kg" class="k_g" placeholder="0" value="" oninput="kilogram(this.value)" onchange="kilogram(this.value)"/>
+            <br>
+
+            <label>pounds</label><br>
+            <input type="number" id="pounds" class="pounds" placeholder="0" value="" oninput="pounds(this.value)" onchange="pounds(this.value)"/>
+            <br>
+
+            <label>milligram</label><br>
+            <input type="number" id="milligram" class="milligram" placeholder="0" value="" oninput="gram(this.value)" onchange="gram(this.value)"/>
+            <br>
+
+            <label>stones</label><br>
+            <input type="number" id="stones" class="stones" placeholder="0" value="" oninput="stones(this.value)" onchange="stones(this.value)"/>
+            <br>
+
+            <label>ounce</label><br>
+            <input type="number" id="ounce" class="ounce" placeholder="0" value="" oninput="ounce(this.value)" onchange="ounce(this.value)"/>
+            <br>
+
+            <!--<button onclick="convert()" class="convert" id="convert">convert</button>-->
+            <button onclick="reset()" class="reset">reset</button>
+        </div>
+    </div>
+        <script>
+            function kilogram(valnum){
+               document.getElementById("pounds").value=valnum*2.2046;
+               document.getElementById("milligram").value=valnum*1000;
+               document.getElementById("stones").value=valnum*0.1574;
+               document.getElementById("ounce").value=valnum*35.274;
+
+            }
+            function reset(){
+               document.getElementById("kg").value=null;
+               document.getElementById("pounds").value=null;
+               document.getElementById("milligram").value=null;
+               document.getElementById("stones").value=null;
+               document.getElementById("ounce").value=null;
+            }
+
+            function pounds(valnum){
+               document.getElementById("kg").value=valnum/2.2046;
+               document.getElementById("milligram").value=valnum/0.0022046;
+               document.getElementById("stones").value=valnum*0.071429;
+               document.getElementById("ounce").value=valnum*16;
+            }
+
+            function gram(valnum){
+               document.getElementById("kg").value=valnum/1000;
+               document.getElementById("pounds").value=valnum*0.0022046;
+               document.getElementById("stones").value=valnum*0.00015747;
+               document.getElementById("ounce").value=valnum*0.035274;
+            }
+
+            function stones(valnum){
+               document.getElementById("pounds").value=valnum*14;
+               document.getElementById("milligram").value=valnum/0.00015747;
+               document.getElementById("kg").value=valnum/0.15747;
+               document.getElementById("ounce").value=valnum*224;
+
+            }
+
+            function ounce(valnum){
+               document.getElementById("pounds").value=valnum*0.0625;
+               document.getElementById("milligram").value=valnum/0.035274;
+               document.getElementById("stones").value=valnum*0.0044643;
+               document.getElementById("kg").value=valnum/35.274;
+            }
+        </script>
+    </body>
+</html>
